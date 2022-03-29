@@ -21,4 +21,4 @@ public class DB_Connect {
         }
         return connection;
     }
-};
+}
