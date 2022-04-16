@@ -22,4 +22,9 @@ public class SalesService {
     public List<Sales> getSales() {
         return salesRepository.findAll();
     }
+
+    public void addNewSale(Sales sales) {
+        salesRepository.findSalesByAmount(sales.getAmount());
+        System.out.println(sales);
+    }
 }

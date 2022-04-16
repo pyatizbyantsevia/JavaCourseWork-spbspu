@@ -38,12 +38,10 @@ public class Sales {
     public Sales(
             Double amount,
             Integer quantity,
-            LocalDate sale_date,
-            Warehouses warehouse_id) {
+            LocalDate sale_date) {
         this.amount = amount;
         this.quantity = quantity;
         this.sale_date = sale_date;
-        this.warehouses = warehouse_id;
     }
 
     public Long getId() {
