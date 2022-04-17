@@ -1,8 +1,7 @@
-package com.example.configs;
+package com.shop_automation.configs;
 
-import com.example.models.Sales;
-import com.example.models.Warehouses;
-import com.example.repositories.SalesRepository;
+import com.shop_automation.models.Sales;
+import com.shop_automation.repositories.SalesRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

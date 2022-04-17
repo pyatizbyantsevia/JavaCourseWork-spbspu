@@ -1,7 +1,7 @@
-package com.example.services;
+package com.shop_automation.services;
 
-import com.example.models.Sales;
-import com.example.repositories.SalesRepository;
+import com.shop_automation.models.Sales;
+import com.shop_automation.repositories.SalesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
@@ -23,8 +23,4 @@ public class SalesService {
         return salesRepository.findAll();
     }
 
-    public void addNewSale(Sales sales) {
-        salesRepository.findSalesByAmount(sales.getAmount());
-        System.out.println(sales);
-    }
 }

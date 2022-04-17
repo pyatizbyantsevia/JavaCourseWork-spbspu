@@ -1,7 +1,7 @@
-package com.example.controllers;
+package com.shop_automation.controllers;
 
-import com.example.models.Sales;
-import com.example.services.SalesService;
+import com.shop_automation.models.Sales;
+import com.shop_automation.services.SalesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,10 +23,5 @@ public class SalesController {
     @GetMapping
     public List<Sales> getSales() {
         return salesService.getSales();
-    }
-
-    @PostMapping
-    public void registerNewSale(@RequestBody Sales sales) {
-        salesService.addNewSale(sales);
     }
 }

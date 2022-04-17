@@ -1,4 +1,4 @@
-package com.example.models;
+package com.shop_automation.models;
 
 import javax.persistence.*;
 import java.time.LocalDate;
