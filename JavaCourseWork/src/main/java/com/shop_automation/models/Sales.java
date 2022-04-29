@@ -1,5 +1,8 @@
 package com.shop_automation.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
@@ -15,6 +18,7 @@ public class Sales {
     private Integer quantity;
     private LocalDate sale_date;
 
+    @JsonManagedReference
     @ManyToOne
     @JoinColumn(name = "warehouse_id", foreignKey = @ForeignKey(name = "FK_SALES_WAREHOUSES"))
     private Warehouses warehouses;
@@ -82,5 +86,16 @@ public class Sales {
 
     public void setWarehouse_id(Warehouses warehouse_id) {
         this.warehouses = warehouse_id;
+    }
+
+    @Override
+    public String toString() {
+        return "Sales{" +
+                "id=" + id +
+                ", amount=" + amount +
+                ", quantity=" + quantity +
+                ", sale_date=" + sale_date +
+                ", warehouses=" + warehouses +
+                '}';
     }
 }

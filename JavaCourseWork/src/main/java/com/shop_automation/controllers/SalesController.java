@@ -14,6 +14,8 @@ import java.util.List;
 public class SalesController {
 
     private final SalesService salesService;
+    private final SalesService salesService;
+
 
     @Autowired
     public SalesController(SalesService salesService) {
@@ -21,7 +23,12 @@ public class SalesController {
     }
 
     @GetMapping
-    public List<Sales> getSales() {
-        return salesService.getSales();
+    public String getSales() {
+        return salesService.getSales().toString();
+    }
+
+    @GetMapping("/aboba")
+    public String getWarehouses() {
+        return salesService.getSales().toString();
     }
 }

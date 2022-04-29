@@ -1,5 +1,8 @@
 package com.shop_automation.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -10,6 +13,8 @@ public class Warehouses {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+
+    @JsonBackReference
     @OneToMany(mappedBy = "warehouses")
     private List<Sales> salesList;
 
@@ -71,5 +76,16 @@ public class Warehouses {
 
     public void setAmount(Double amount) {
         this.amount = amount;
+    }
+
+    @Override
+    public String toString() {
+        return "Warehouses{" +
+                "id=" + id +
+                ", salesList=" + salesList +
+                ", name='" + name + '\'' +
+                ", quantity=" + quantity +
+                ", amount=" + amount +
+                '}';
     }
 }

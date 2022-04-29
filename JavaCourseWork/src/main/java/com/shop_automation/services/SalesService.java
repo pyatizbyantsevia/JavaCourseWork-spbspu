@@ -13,7 +13,6 @@ import java.util.List;
 public class SalesService {
 
     private final SalesRepository salesRepository;
-
     @Autowired
     public SalesService(SalesRepository salesRepository) {
         this.salesRepository = salesRepository;
