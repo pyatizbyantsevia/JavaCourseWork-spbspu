@@ -2,17 +2,25 @@ package com.shop_automation.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.List;
 
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table
 public class Warehouses {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
     @JsonBackReference
     @OneToMany(mappedBy = "warehouses")
@@ -21,62 +29,6 @@ public class Warehouses {
     private String name;
     private Integer quantity;
     private Double amount;
-
-    public Warehouses() {
-    }
-
-    public Warehouses(Long id, String name, Integer quantity, Double amount) {
-        this.id = id;
-        this.name = name;
-        this.quantity = quantity;
-        this.amount = amount;
-    }
-
-    public Warehouses(String name, Integer quantity, Double amount) {
-        this.name = name;
-        this.quantity = quantity;
-        this.amount = amount;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public List<Sales> getSalesList() {
-        return salesList;
-    }
-
-    public void setSalesList(List<Sales> salesList) {
-        this.salesList = salesList;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Integer getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
-    }
-
-    public Double getAmount() {
-        return amount;
-    }
-
-    public void setAmount(Double amount) {
-        this.amount = amount;
-    }
 
     @Override
     public String toString() {
