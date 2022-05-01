@@ -1,11 +1,13 @@
 package com.shop_automation.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 
+@ToString
 @Getter
 @Setter
 @AllArgsConstructor
@@ -16,7 +18,7 @@ public class Sales {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     private Double amount;
     private Integer quantity;
@@ -38,14 +40,4 @@ public class Sales {
         this.warehouses = warehouses;
     }
 
-    @Override
-    public String toString() {
-        return "Sales{" +
-                "id=" + id +
-                ", amount=" + amount +
-                ", quantity=" + quantity +
-                ", sale_date=" + sale_date +
-                ", warehouses=" + warehouses +
-                '}';
-    }
 }

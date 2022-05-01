@@ -2,14 +2,12 @@ package com.shop_automation.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
 
+@ToString
 @Getter
 @Setter
 @AllArgsConstructor
@@ -30,14 +28,4 @@ public class Warehouses {
     private Integer quantity;
     private Double amount;
 
-    @Override
-    public String toString() {
-        return "Warehouses{" +
-                "id=" + id +
-                ", salesList=" + salesList +
-                ", name='" + name + '\'' +
-                ", quantity=" + quantity +
-                ", amount=" + amount +
-                '}';
-    }
 }
