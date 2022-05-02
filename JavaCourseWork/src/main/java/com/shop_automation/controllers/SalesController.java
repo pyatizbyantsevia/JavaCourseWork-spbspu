@@ -1,6 +1,6 @@
 package com.shop_automation.controllers;
 
-import com.shop_automation.dto.OrderResponse;
+import com.shop_automation.dto.SaleRequest;
 import com.shop_automation.models.Sales;
 import com.shop_automation.services.SalesService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,4 +34,8 @@ public class SalesController {
         return salesService.getJoinInformation(src);
     }
 
+    @PostMapping("register-new-sale")
+    public String registerNewSale(@RequestBody SaleRequest saleRequest) {
+        return salesService.saveSale(saleRequest);
+    }
 }
