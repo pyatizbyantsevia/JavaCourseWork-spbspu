@@ -6,9 +6,10 @@ import com.shop_automation.models.Sales;
 import com.shop_automation.services.SalesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
-import java.time.LocalDate;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("sales")
@@ -22,8 +23,11 @@ public class SalesController {
     }
 
     @GetMapping("get-all")
-    public List<Sales> getSales() {
-        return salesService.getSales();
+    public ModelAndView getSales(Map<String, Object> model) {
+        List<Sales> salesList = salesService.getSales();
+        model.put("sales", salesList);
+        model.put("title", "<<Sales>>");
+        return new ModelAndView("sales", model);
     }
 
     @GetMapping("get-id/{id}")
