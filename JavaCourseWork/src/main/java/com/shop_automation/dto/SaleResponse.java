@@ -7,7 +7,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class OrderResponse {
+public class SaleResponse {
 
     private Integer quantityS;
     private Integer quantityW;
