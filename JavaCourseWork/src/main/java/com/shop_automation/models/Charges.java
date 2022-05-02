@@ -19,7 +19,7 @@ public class Charges {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     private Double amount;
     private LocalDate charge_date;

@@ -18,7 +18,7 @@ public class Warehouses {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @JsonBackReference
     @OneToMany(mappedBy = "warehouses")

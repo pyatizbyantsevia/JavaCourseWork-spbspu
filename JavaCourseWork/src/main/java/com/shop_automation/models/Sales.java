@@ -1,6 +1,5 @@
 package com.shop_automation.models;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
@@ -24,7 +23,6 @@ public class Sales {
     private Integer quantity;
     private LocalDate sale_date;
 
-    @JsonManagedReference
     @ManyToOne
     @JoinColumn(name = "warehouse_id", foreignKey = @ForeignKey(name = "FK_SALES_WAREHOUSES"))
     private Warehouses warehouses;
