@@ -9,6 +9,6 @@ import lombok.*;
 @ToString
 public class SaleResponse {
 
-    private Integer quantityS;
-    private Integer quantityW;
+    private Integer quantitySale;
+    private String name;
 }

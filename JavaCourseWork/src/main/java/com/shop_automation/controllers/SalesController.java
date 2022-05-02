@@ -1,11 +1,13 @@
 package com.shop_automation.controllers;
 
 import com.shop_automation.dto.SaleRequest;
+import com.shop_automation.dto.SaleResponse;
 import com.shop_automation.models.Sales;
 import com.shop_automation.services.SalesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -29,9 +31,9 @@ public class SalesController {
         return salesService.getSaleById(id);
     }
 
-    @GetMapping("get-join/{src}")
-    public Boolean getJoinInformation(@PathVariable String src) {
-        return salesService.getJoinInformation(src);
+    @GetMapping("get-quantity-and-name/{src}")
+    public List<SaleResponse> getQuantityAndNameByDate(@PathVariable String src) {
+        return salesService.getQuantityAndNameByDate(src);
     }
 
     @PostMapping("register-new-sale")
