@@ -1,6 +1,7 @@
 package com.shop_automation.services;
 
 import com.shop_automation.dto.WarehouseRequest;
+import com.shop_automation.models.Sales;
 import com.shop_automation.models.Warehouses;
 import com.shop_automation.repositories.SalesRepository;
 import com.shop_automation.repositories.WarehousesRepository;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Optional;
 
 @Component
 @Service
@@ -45,5 +47,21 @@ public class WarehousesService {
         ));
         System.out.println("Note added");
         return "Запись добавлена";
+    }
+
+    public String addGoods(WarehouseRequest warehouseRequest) {
+        Optional<Warehouses> temp = warehousesRepository.findByName(warehouseRequest.getName());
+        if (temp.isPresent()) {
+            temp.get().setQuantity(temp.get().getQuantity() + warehouseRequest.getQuantity());
+            warehousesRepository.save(temp.get());
+            return "Товар пополнен";
+        } else {
+            return "Имя товара не найдено";
+        }
+    }
+
+    public void deleteAllSalesByName(String name) {
+        List<Sales> temp = salesRepository.getSalesByName(name);
+        salesRepository.deleteAll(temp);
     }
 }

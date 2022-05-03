@@ -1,30 +1,26 @@
 package com.shop_automation.controllers;
 
-import com.shop_automation.dto.SaleRequest;
 import com.shop_automation.dto.WarehouseRequest;
-import com.shop_automation.models.Sales;
 import com.shop_automation.models.Warehouses;
 import com.shop_automation.services.WarehousesService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Map;
 
-@Controller
+@RestController
 @RequestMapping("warehouses")
-public class WarehousesController {
+public class WarehousesRestController {
 
     private final WarehousesService warehousesService;
 
     @Autowired
-    public WarehousesController(WarehousesService warehousesService) {
+    public WarehousesRestController(WarehousesService warehousesService) {
         this.warehousesService = warehousesService;
     }
 
     @GetMapping("get-all")
-    public List<Warehouses> getAllSales(Map<String, Object> model) {
+    public List<Warehouses> getAllWarehouses() {
         return warehousesService.getWarehouses();
     }
 
@@ -36,5 +32,15 @@ public class WarehousesController {
     @PostMapping("add-through-http")
     public String registerNewWarehouse(@RequestBody WarehouseRequest warehouseRequest) {
         return warehousesService.saveWarehouse(warehouseRequest);
+    }
+
+    @PutMapping("replenishment")
+    public String replenishmentOfWarehouse(@RequestBody WarehouseRequest warehouseRequest) {
+        return warehousesService.addGoods(warehouseRequest);
+    }
+
+    @DeleteMapping("delete-name/{name}")
+    public void deleteAllSalesByName(@PathVariable String name) {
+        warehousesService.deleteAllSalesByName(name);
     }
 }
