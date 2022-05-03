@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 
@@ -22,7 +23,8 @@ public class SalesController {
         this.salesService = salesService;
     }
 
-    @GetMapping("get-all")
+    //must be refactored
+    @GetMapping
     public ModelAndView getSales(Map<String, Object> model) {
         List<Sales> salesList = salesService.getSales();
         model.put("sales", salesList);
@@ -40,8 +42,24 @@ public class SalesController {
         return salesService.getQuantityAndNameByDate(src);
     }
 
-    @PostMapping("register-new-sale")
+    @PostMapping("add-through-http")
     public String registerNewSale(@RequestBody SaleRequest saleRequest) {
         return salesService.saveSale(saleRequest);
+    }
+
+    @GetMapping("add-through-mustache")
+    public ModelAndView main(Map<String, Object> model) {
+        return new ModelAndView("main", model);
+    }
+
+    @PostMapping("add-through-mustache")
+    public ModelAndView add(
+            @RequestParam Double amount,
+            @RequestParam Integer quantity,
+            @RequestParam String local_date,
+            @RequestParam Long warehouse_id,
+            Map<String, Object> model) {
+        salesService.saveSale(new SaleRequest(amount, quantity, LocalDate.parse(local_date), warehouse_id));
+        return new ModelAndView("main", model);
     }
 }
