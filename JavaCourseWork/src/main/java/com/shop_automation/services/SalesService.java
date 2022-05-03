@@ -54,10 +54,10 @@ public class SalesService {
                     saleRequest.getSale_date(),
                     warehousesRepository.findById(saleRequest.getWarehouse_id()).get()
             ));
-            System.out.println("Запись добавлена");
+            System.out.println("Note added");
             return "Запись добавлена";
         } else {
-            System.out.println("На складе недостаточно товара");
+            System.out.println("Not enough product");
             return "На складе недостаточно товара";
         }
     }

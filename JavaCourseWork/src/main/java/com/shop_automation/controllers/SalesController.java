@@ -1,21 +1,21 @@
 package com.shop_automation.controllers;
 
 import com.shop_automation.dto.SaleRequest;
-import com.shop_automation.dto.SaleResponse;
 import com.shop_automation.handlers.Response;
-import com.shop_automation.models.Sales;
 import com.shop_automation.services.SalesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.Map;
 
 @Controller
-@RequestMapping("sales")
+@RequestMapping("sales-controller")
 public class SalesController {
 
     private final SalesService salesService;
@@ -23,26 +23,6 @@ public class SalesController {
     @Autowired
     public SalesController(SalesService salesService) {
         this.salesService = salesService;
-    }
-
-    @GetMapping("get-all")
-    public List<Sales> getAllSales(Map<String, Object> model) {
-        return salesService.getSales();
-    }
-
-    @GetMapping("get-id/{id}")
-    public Sales findById(@PathVariable long id) {
-        return salesService.getSaleById(id);
-    }
-
-    @GetMapping("get-quantity-and-name/{src}")
-    public List<SaleResponse> getQuantityAndNameByDate(@PathVariable String src) {
-        return salesService.getQuantityAndNameByDate(src);
-    }
-
-    @PostMapping("add-through-http")
-    public String registerNewSale(@RequestBody SaleRequest saleRequest) {
-        return salesService.saveSale(saleRequest);
     }
 
     @GetMapping("add-through-mustache")

@@ -43,7 +43,7 @@ public class WarehousesService {
                 warehouseRequest.getAmount(),
                 salesRepository.getSalesByName(warehouseRequest.getName())
         ));
-        System.out.println("Запись добавлена");
+        System.out.println("Note added");
         return "Запись добавлена";
     }
 }
