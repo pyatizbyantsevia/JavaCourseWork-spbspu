@@ -20,12 +20,18 @@ public class Warehouses {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @JsonBackReference
-    @OneToMany(mappedBy = "warehouses")
-    private List<Sales> salesList;
-
     private String name;
     private Integer quantity;
     private Double amount;
 
+    @JsonBackReference
+    @OneToMany(mappedBy = "warehouses")
+    private List<Sales> salesList;
+
+    public Warehouses(String name, Integer quantity, Double amount, List<Sales> salesList) {
+        this.name = name;
+        this.quantity = quantity;
+        this.amount = amount;
+        this.salesList = salesList;
+    }
 }
