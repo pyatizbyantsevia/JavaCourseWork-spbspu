@@ -4,6 +4,7 @@ import com.shop_automation.models.Sales;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Data
 @Getter
@@ -14,6 +15,6 @@ public class SaleRequest {
 
     private Double amount;
     private Integer quantity;
-    private LocalDate sale_date;
+    private LocalDateTime sale_date;
     private Long warehouse_id;
 }

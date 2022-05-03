@@ -2,17 +2,19 @@ package com.shop_automation.controllers;
 
 import com.shop_automation.dto.SaleRequest;
 import com.shop_automation.dto.SaleResponse;
+import com.shop_automation.handlers.Response;
 import com.shop_automation.models.Sales;
 import com.shop_automation.services.SalesService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 
-@RestController
+@Controller
 @RequestMapping("sales")
 public class SalesController {
 
@@ -23,13 +25,9 @@ public class SalesController {
         this.salesService = salesService;
     }
 
-    //must be refactored
-    @GetMapping
-    public ModelAndView getSales(Map<String, Object> model) {
-        List<Sales> salesList = salesService.getSales();
-        model.put("sales", salesList);
-        model.put("title", "<<Sales>>");
-        return new ModelAndView("sales", model);
+    @GetMapping("get-all")
+    public List<Sales> getAllSales(Map<String, Object> model) {
+        return salesService.getSales();
     }
 
     @GetMapping("get-id/{id}")
@@ -48,18 +46,21 @@ public class SalesController {
     }
 
     @GetMapping("add-through-mustache")
-    public ModelAndView main(Map<String, Object> model) {
-        return new ModelAndView("main", model);
+    public String main(Map<String, Object> model) {
+        return "main";
     }
 
     @PostMapping("add-through-mustache")
-    public ModelAndView add(
+    public String add(
             @RequestParam Double amount,
             @RequestParam Integer quantity,
-            @RequestParam String local_date,
+            @RequestParam  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime local_date,
             @RequestParam Long warehouse_id,
             Map<String, Object> model) {
-        salesService.saveSale(new SaleRequest(amount, quantity, LocalDate.parse(local_date), warehouse_id));
-        return new ModelAndView("main", model);
+
+        String result = salesService.saveSale(new SaleRequest(amount, quantity, local_date, warehouse_id));
+        Response response = new Response(result);
+        model.put("response", response);
+        return "main";
     }
 }

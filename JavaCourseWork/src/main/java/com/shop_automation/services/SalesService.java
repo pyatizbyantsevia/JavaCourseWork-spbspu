@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -36,7 +37,7 @@ public class SalesService {
     }
 
     public List<SaleResponse> getQuantityAndNameByDate(String src) {
-        return salesRepository.getQuantityAndNameByDate(LocalDate.parse(src));
+        return salesRepository.getQuantityAndNameByDate(LocalDateTime.parse(src));
     }
 
     public String saveSale(SaleRequest saleRequest) {

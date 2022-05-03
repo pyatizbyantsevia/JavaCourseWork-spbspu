@@ -1,10 +1,9 @@
 package com.shop_automation.models;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @ToString
 @Getter
@@ -21,7 +20,7 @@ public class Sales {
 
     private Double amount;
     private Integer quantity;
-    private LocalDate sale_date;
+    private LocalDateTime sale_date;
 
     @ManyToOne
     @JoinColumn(name = "warehouse_id", foreignKey = @ForeignKey(name = "FK_SALES_WAREHOUSES"))
@@ -30,7 +29,7 @@ public class Sales {
     public Sales(
             Double amount,
             Integer quantity,
-            LocalDate sale_date,
+            LocalDateTime sale_date,
             Warehouses warehouses) {
         this.amount = amount;
         this.quantity = quantity;
