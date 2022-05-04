@@ -1,7 +1,9 @@
 package com.shop_automation.controllers;
 
+import com.shop_automation.dto.SaleDTO;
 import com.shop_automation.dto.SaleRequest;
 import com.shop_automation.handlers.Response;
+import com.shop_automation.models.Sales;
 import com.shop_automation.services.SalesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -12,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -23,6 +27,23 @@ public class SalesController {
     @Autowired
     public SalesController(SalesService salesService) {
         this.salesService = salesService;
+    }
+
+    @GetMapping("get-all")
+    public String getAllSales(Map<String, Object> model) {
+        List<Sales> response = salesService.getSales();
+        List<SaleDTO> temp = new ArrayList<>();
+        for (Sales sales : response) {
+            temp.add(new SaleDTO(
+                    sales.getId(),
+                    sales.getAmount(),
+                    sales.getQuantity(),
+                    sales.getSale_date(),
+                    sales.getWarehouses().getId()
+            ));
+        }
+        model.put("sales", temp);
+        return "sales";
     }
 
     @GetMapping("add-through-mustache")

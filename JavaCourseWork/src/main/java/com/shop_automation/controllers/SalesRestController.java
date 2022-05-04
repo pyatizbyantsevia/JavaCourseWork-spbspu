@@ -40,4 +40,8 @@ public class SalesRestController {
         return salesService.saveSale(saleRequest);
     }
 
+    @GetMapping("get-sales-by-warehouse-amount")
+    public List<Sales> getSalesByWarehouseAmount() {
+        return salesService.getSalesByWarehouseAmount();
+    }
 }

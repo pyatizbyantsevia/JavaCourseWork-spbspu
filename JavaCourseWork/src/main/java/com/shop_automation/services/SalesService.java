@@ -61,4 +61,8 @@ public class SalesService {
             return "На складе недостаточно товара";
         }
     }
+
+    public List<Sales> getSalesByWarehouseAmount() {
+        return salesRepository.getSalesByWarehouseAmount();
+    }
 }

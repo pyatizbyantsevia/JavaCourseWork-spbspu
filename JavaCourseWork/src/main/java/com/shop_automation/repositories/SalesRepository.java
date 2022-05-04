@@ -17,4 +17,7 @@ public interface SalesRepository extends JpaRepository<Sales, Long> {
 
     @Query("SELECT s FROM Sales s JOIN s.warehouses w WHERE w.name = ?1")
     List<Sales> getSalesByName(String src);
+
+    @Query("SELECT s FROM Sales s JOIN s.warehouses w WHERE w.amount > 2.1")
+    List<Sales> getSalesByWarehouseAmount();
 }

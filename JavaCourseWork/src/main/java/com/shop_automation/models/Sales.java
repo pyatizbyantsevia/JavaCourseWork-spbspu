@@ -1,6 +1,8 @@
 package com.shop_automation.models;
 
+
 import lombok.*;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -22,6 +24,7 @@ public class Sales {
     private Integer quantity;
     private LocalDateTime sale_date;
 
+    @JsonManagedReference
     @ManyToOne
     @JoinColumn(name = "warehouse_id", foreignKey = @ForeignKey(name = "FK_SALES_WAREHOUSES"))
     private Warehouses warehouses;
