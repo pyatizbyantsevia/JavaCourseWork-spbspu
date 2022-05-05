@@ -40,7 +40,7 @@ public class WarehousesController {
             ));
         }
         model.put("warehouses", temp);
-        return "main";
+        return "warehouses";
     }
 
     @PostMapping("main")

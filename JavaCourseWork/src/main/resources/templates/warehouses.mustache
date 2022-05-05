@@ -1,12 +1,12 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Sales</title>
+    <title>Warehouses</title>
 </head>
 <body>
 
 <div style="float: right;">
-    <div>Add new sales</div>
+    <div>Add new goods</div>
     <form method="post" action="main">
         <input type ="text" name="name" placeholder="name">
         <input type ="number" name="amount" placeholder="amount">
@@ -22,7 +22,6 @@
 </div>
 
 <div>
-
     <table border="1">
         <tr>
             <th>Id</th>
@@ -31,7 +30,7 @@
             <th>Quantity</th>
         </tr>
         {{#warehouses}}
-            <tr><td>{{id}}</td><td>{{name}}</td><td>{{amount}}</td><td>{{quantity}}</td></tr>
+            <tr><td>{{id}}</td><td>{{name}}</td>><td>{{amount}}</td><td>{{quantity}}</td></tr>
         {{/warehouses}}
     </table>
 </div>
