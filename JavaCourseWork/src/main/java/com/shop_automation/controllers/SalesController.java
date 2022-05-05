@@ -29,7 +29,7 @@ public class SalesController {
         this.salesService = salesService;
     }
 
-    @GetMapping("get-all")
+    @GetMapping("main")
     public String getAllSales(Map<String, Object> model) {
         List<Sales> response = salesService.getSales();
         List<SaleDTO> temp = new ArrayList<>();
@@ -46,12 +46,7 @@ public class SalesController {
         return "sales";
     }
 
-    @GetMapping("add-through-mustache")
-    public String main(Map<String, Object> model) {
-        return "main";
-    }
-
-    @PostMapping("add-through-mustache")
+    @PostMapping("main")
     public String add(
             @RequestParam Double amount,
             @RequestParam Integer quantity,
@@ -62,6 +57,6 @@ public class SalesController {
         String result = salesService.saveSale(new SaleRequest(amount, quantity, local_date, warehouse_id));
         Response response = new Response(result);
         model.put("response", response);
-        return "main";
+        return getAllSales(model);
     }
 }

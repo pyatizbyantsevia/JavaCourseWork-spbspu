@@ -1,18 +1,43 @@
 <html>
+<head>
+    <meta charset="utf-8">
+    <title>Sales</title>
+</head>
 <body>
-<h1>List of sales</h1>
-<div style="width:100%">
-    {{#sales}}
+
+<div style="float: right;">
+    <div>Add new sales</div>
+    <form method="post" action="main">
+        <input type ="number" name="amount" placeholder="amount">
+        <input type ="number" name="quantity" placeholder="quantity">
+        <input type ="datetime-local" name="local_date" placeholder="2000-01-01">
+        <input type ="number" name="warehouse_id" placeholder="warehouse_id">
+        <button type="submit">Add</button>
+    </form>
+    <div>Server response:</div>
+    {{#response}}
         <div>
-            <b> Id:{{id}} </b>
-            <span> Amount:{{amount}} </span>
-            <span> Quantity:{{quantity}}</span>
-            <span> Sale date:{{sale_date}}</span>
-            <span> Warehouse id:{{warehouse_id}}</span>
-        <br>
-        <hr>
+            <b>{{message}}</b>
         </div>
-    {{/sales}}
+    {{/response}}
 </div>
+
+<div>
+
+
+    <table border="1">
+        <tr>
+            <th>Id</th>
+            <th>Amount</th>
+            <th>Quantity</th>
+            <th>Sale date</th>
+            <th>Warehouse id</th>
+        </tr>
+    {{#sales}}
+        <tr><td>{{id}}</td><td>{{amount}}</td><td>{{quantity}}</td><td>{{sale_date}}</td><td>{{warehouse_id}}</td></tr>
+    {{/sales}}
+    </table>
+</div>
+
 </body>
 </html>

@@ -6,7 +6,7 @@
 <body>
 
 <div style="float: right;">
-    <div>Add new goods</div>
+    <div>Add new sales</div>
     <form method="post" action="main">
         <input type ="text" name="name" placeholder="name">
         <input type ="number" name="amount" placeholder="amount">
@@ -22,6 +22,7 @@
 </div>
 
 <div>
+
     <table border="1">
         <tr>
             <th>Id</th>
@@ -30,23 +31,10 @@
             <th>Quantity</th>
         </tr>
         {{#warehouses}}
-            <tr><td>{{id}}</td>{{name}}<td></td><td></td><td></td></tr>
+            <tr><td>{{id}}</td><td>{{name}}</td><td>{{amount}}</td><td>{{quantity}}</td></tr>
         {{/warehouses}}
     </table>
 </div>
 
 </body>
 </html>
-
-<!--<div>Replanish goods</div>-->
-<!--<form method="post" action="main">-->
-<!--    <input type ="text" name="nameReplenish" placeholder="name">-->
-<!--    <input type ="number" name="quantityReplenish" placeholder="quantity">-->
-<!--    <button type="submit">Add</button>-->
-<!--</form>-->
-<!--<div>Server response:</div>-->
-<!--{{#responseAddGoods}}-->
-<!--    <div>-->
-<!--        <b>{{message}}</b>-->
-<!--    </div>-->
-<!--{{/responseAddGoods}}-->

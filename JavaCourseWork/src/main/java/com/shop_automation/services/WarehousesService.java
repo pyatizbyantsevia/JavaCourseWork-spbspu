@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @Component
@@ -37,7 +36,7 @@ public class WarehousesService {
     public String saveWarehouse(WarehouseRequest warehouseRequest) {
 
         if (warehousesRepository.findByName(warehouseRequest.getName()).isPresent()) {
-            throw new NoSuchElementException("Такой товар уже есть на складе");
+            return "Такой товар уже есть на складе";
         }
         warehousesRepository.save(new Warehouses(
                 warehouseRequest.getName(),
@@ -45,7 +44,6 @@ public class WarehousesService {
                 warehouseRequest.getAmount(),
                 salesRepository.getSalesByName(warehouseRequest.getName())
         ));
-        System.out.println("Note added");
         return "Запись добавлена";
     }
 

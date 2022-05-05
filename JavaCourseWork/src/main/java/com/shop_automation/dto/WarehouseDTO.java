@@ -7,14 +7,10 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class WarehouseRequest {
+public class WarehouseDTO {
 
+    private Long id;
     private String name;
     private Integer quantity;
     private Double amount;
-
-    public WarehouseRequest(String name, Integer quantity) {
-        this.name = name;
-        this.quantity = quantity;
-    }
 }
