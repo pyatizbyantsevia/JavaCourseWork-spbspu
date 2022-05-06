@@ -11,14 +11,26 @@
         <input type ="text" name="name" placeholder="name">
         <input type ="number" name="amount" placeholder="amount">
         <input type ="number" name="quantity" placeholder="quantity">
-        <button type="submit">Add</button>
+        <button type="submit" name="btnAdd">Add</button>
     </form>
     <div>Server response:</div>
-    {{#response}}
+    {{#responseAdd}}
         <div>
             <b>{{message}}</b>
         </div>
-    {{/response}}
+    {{/responseAdd}}
+    <div>Replenish goods</div>
+    <form method="post" action="main">
+        <input type ="text" name="name" placeholder="name">
+        <input type ="number" name="quantity" placeholder="quantity">
+        <button type="submit" name="btnReplenish">Add</button>
+    </form>
+    <div>Server response:</div>
+    {{#responseUpdate}}
+        <div>
+            <b>{{message}}</b>
+        </div>
+    {{/responseUpdate}}
 </div>
 
 <div>

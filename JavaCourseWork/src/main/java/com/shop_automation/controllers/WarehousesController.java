@@ -43,15 +43,26 @@ public class WarehousesController {
         return "warehouses";
     }
 
-    @PostMapping("main")
-    public String main(
+    @PostMapping(path = "main", params = "btnAdd")
+    public String addGoods(
             @RequestParam String name,
             @RequestParam Double amount,
             @RequestParam Integer quantity,
             Map<String, Object> model) {
         String result = warehousesService.saveWarehouse(new WarehouseRequest(name, quantity, amount));
         Response response = new Response(result);
-        model.put("response", response);
+        model.put("responseAdd", response);
+        return getAllWarehouses(model);
+    }
+
+    @PostMapping(path = "main", params = "btnReplenish")
+    public String updateGoods(
+            @RequestParam String name,
+            @RequestParam Integer quantity,
+            Map<String, Object> model) {
+        String result = warehousesService.addGoods(new WarehouseRequest(name, quantity));
+        Response response = new Response(result);
+        model.put("responseUpdate", response);
         return getAllWarehouses(model);
     }
 
