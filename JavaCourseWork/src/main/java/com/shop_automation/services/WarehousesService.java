@@ -62,4 +62,20 @@ public class WarehousesService {
         List<Sales> temp = salesRepository.getSalesByName(name);
         salesRepository.deleteAll(temp);
     }
+
+    public String cascadeDelete(Long id) {
+        Optional<Warehouses> temp = warehousesRepository.findById(id);
+        if (temp.isPresent()) {
+            List<Sales> salesList = salesRepository.findAll();
+            for(Sales i: salesList) {
+                if (i.getWarehouses() == temp.get()) {
+                    salesRepository.deleteById(i.getId());
+                }
+            }
+            warehousesRepository.deleteById(id);
+            return "Oк";
+        } else {
+            return "Товара с таким id не существует";
+        }
+    }
 }

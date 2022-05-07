@@ -6,35 +6,74 @@
 <body>
 
 <div style="float: right;">
-    <div>Add new goods</div>
-    <form method="post" action="main">
-        <input type ="text" name="name" placeholder="name">
-        <input type ="number" name="amount" placeholder="amount">
-        <input type ="number" name="quantity" placeholder="quantity">
-        <button type="submit" name="btnAdd">Add</button>
-    </form>
-    <div>Server response:</div>
-    {{#responseAdd}}
-        <div>
-            <b>{{message}}</b>
-        </div>
-    {{/responseAdd}}
-    <div>Replenish goods</div>
-    <form method="post" action="main">
-        <input type ="text" name="name" placeholder="name">
-        <input type ="number" name="quantity" placeholder="quantity">
-        <button type="submit" name="btnReplenish">Add</button>
-    </form>
-    <div>Server response:</div>
-    {{#responseUpdate}}
-        <div>
-            <b>{{message}}</b>
-        </div>
-    {{/responseUpdate}}
+    <div style="
+        padding: 10px;
+        background: #abf3a8;
+        outline: 2px solid #000;
+        border: 3px solid #fff;
+        border-radius: 10px;">
+        <div>Add new goods</div>
+        <form method="post" action="main">
+            <input type ="text" name="name" placeholder="name">
+            <input type ="number" name="amount" placeholder="amount">
+            <input type ="number" name="quantity" placeholder="quantity">
+            <button type="submit" name="btnAdd">Add</button>
+        </form>
+        <div>Server response:</div>
+        {{#responseAdd}}
+            <div>
+                <b>{{message}}</b>
+            </div>
+        {{/responseAdd}}
+    </div>
+    <div style="padding: 10px;"></div>
+    <div style="
+        padding: 10px;
+        background: #abf3a8;
+        outline: 2px solid #000;
+        border: 3px solid #fff;
+        border-radius: 10px;">
+        <div>Replenish goods</div>
+        <form method="post" action="main">
+            <input type ="text" name="name" placeholder="name">
+            <input type ="number" name="quantity" placeholder="quantity">
+            <button type="submit" name="btnReplenish">Add</button>
+        </form>
+        <div>Server response:</div>
+        {{#responseUpdate}}
+            <div>
+                <b>{{message}}</b>
+            </div>
+        {{/responseUpdate}}
+    </div>
+    <div style="padding: 10px;"></div>
+    <div style="
+        padding: 10px;
+        background: #abf3a8;
+        outline: 2px solid #000;
+        border: 3px solid #fff;
+        border-radius: 10px;">
+        <div>Cascade delete</div>
+        <form method="post" action="main">
+            <input type ="number" name="id" placeholder="id">
+            <button type="submit" name="btnDelete">Delete</button>
+        </form>
+        <div>Server response:</div>
+        {{#responseDelete}}
+            <div>
+                <b>{{message}}</b>
+            </div>
+        {{/responseDelete}}
+    </div>
 </div>
 
 <div>
-    <table border="1">
+    <table border="1" style="
+        padding: 10px;
+        background: #89bb8e;
+        outline: 2px solid #000;
+        border: 3px solid #fff;
+        border-radius: 10px;">
         <tr>
             <th>Id</th>
             <th>Name</th>
@@ -42,7 +81,7 @@
             <th>Quantity</th>
         </tr>
         {{#warehouses}}
-            <tr><td>{{id}}</td><td>{{name}}</td>><td>{{amount}}</td><td>{{quantity}}</td></tr>
+            <tr><td>{{id}}</td><td>{{name}}</td><td>{{amount}}</td><td>{{quantity}}</td></tr>
         {{/warehouses}}
     </table>
 </div>

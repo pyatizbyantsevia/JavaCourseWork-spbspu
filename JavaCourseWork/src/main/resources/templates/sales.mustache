@@ -6,24 +6,55 @@
 <body>
 
 <div style="float: right;">
-    <div>Add new sales</div>
-    <form method="post" action="main">
-        <input type ="number" name="amount" placeholder="amount">
-        <input type ="number" name="quantity" placeholder="quantity">
-        <input type ="datetime-local" name="local_date" placeholder="2000-01-01">
-        <input type ="number" name="warehouse_id" placeholder="warehouse_id">
-        <button type="submit">Add</button>
-    </form>
-    <div>Server response:</div>
-    {{#response}}
-        <div>
-            <b>{{message}}</b>
-        </div>
-    {{/response}}
+    <div style ="
+        padding: 10px;
+        background: #a8c4f3;
+        outline: 2px solid #000;
+        border: 3px solid #fff;
+        border-radius: 10px;">
+        <div>Add new sales</div>
+        <form method="post" action="main">
+            <input type ="number" name="amount" placeholder="amount">
+            <input type ="number" name="quantity" placeholder="quantity">
+            <input type ="datetime-local" name="local_date" placeholder="2000-01-01">
+            <input type ="number" name="warehouse_id" placeholder="warehouse_id">
+            <button type="submit" name="btnAdd">Add</button>
+        </form>
+        <div>Server response:</div>
+        {{#responseAdd}}
+            <div>
+                <b>{{message}}</b>
+            </div>
+        {{/responseAdd}}
+    </div>
+    <div style="padding: 10px;"></div>
+    <div style="
+        padding: 10px;
+        background: #a8c4f3;
+        outline: 2px solid #000;
+        border: 3px solid #fff;
+        border-radius: 10px;">
+        <div>Cascade delete</div>
+        <form method="post" action="main">
+            <input type ="number" name="id" placeholder="id">
+            <button type="submit" name="btnDelete">Delete</button>
+        </form>
+        <div>Server response:</div>
+        {{#responseDelete}}
+            <div>
+                <b>{{message}}</b>
+            </div>
+        {{/responseDelete}}
+    </div>
 </div>
 
 <div>
-    <table border="1">
+    <table border="1" style="
+        padding: 10px;
+        background: #7ea1bd;
+        outline: 2px solid #000;
+        border: 3px solid #fff;
+        border-radius: 10px;">
         <tr>
             <th>Id</th>
             <th>Amount</th>

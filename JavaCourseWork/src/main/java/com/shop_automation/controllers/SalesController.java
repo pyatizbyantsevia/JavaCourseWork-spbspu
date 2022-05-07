@@ -46,7 +46,7 @@ public class SalesController {
         return "sales";
     }
 
-    @PostMapping("main")
+    @PostMapping(path = "main", params = "btnAdd")
     public String add(
             @RequestParam Double amount,
             @RequestParam Integer quantity,
@@ -56,7 +56,17 @@ public class SalesController {
 
         String result = salesService.saveSale(new SaleRequest(amount, quantity, local_date, warehouse_id));
         Response response = new Response(result);
-        model.put("response", response);
+        model.put("responseAdd", response);
+        return getAllSales(model);
+    }
+
+    @PostMapping(path = "main", params = "btnDelete")
+    public String delete(
+            @RequestParam Long id,
+            Map<String, Object> model) {
+        String result = salesService.deleteSale(id);
+        Response response = new Response(result);
+        model.put("responseDelete", response);
         return getAllSales(model);
     }
 }
