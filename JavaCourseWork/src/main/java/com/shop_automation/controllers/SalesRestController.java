@@ -2,8 +2,8 @@ package com.shop_automation.controllers;
 
 import com.shop_automation.dto.SaleRequest;
 import com.shop_automation.dto.SaleResponse;
-import com.shop_automation.models.Sales;
-import com.shop_automation.services.SalesService;
+import com.shop_automation.models.db.Sales;
+import com.shop_automation.services.db.SalesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

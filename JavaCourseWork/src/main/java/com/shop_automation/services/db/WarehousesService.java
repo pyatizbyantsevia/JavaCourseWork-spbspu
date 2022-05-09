@@ -1,10 +1,10 @@
-package com.shop_automation.services;
+package com.shop_automation.services.db;
 
 import com.shop_automation.dto.WarehouseRequest;
-import com.shop_automation.models.Sales;
-import com.shop_automation.models.Warehouses;
-import com.shop_automation.repositories.SalesRepository;
-import com.shop_automation.repositories.WarehousesRepository;
+import com.shop_automation.models.db.Sales;
+import com.shop_automation.models.db.Warehouses;
+import com.shop_automation.repositories.db.SalesRepository;
+import com.shop_automation.repositories.db.WarehousesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;

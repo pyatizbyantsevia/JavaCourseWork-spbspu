@@ -1,6 +1,6 @@
-package com.shop_automation.repositories;
+package com.shop_automation.repositories.db;
 
-import com.shop_automation.models.Warehouses;
+import com.shop_automation.models.db.Warehouses;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

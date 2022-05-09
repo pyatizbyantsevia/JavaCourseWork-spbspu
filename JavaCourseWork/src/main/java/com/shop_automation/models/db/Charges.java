@@ -1,4 +1,5 @@
-package com.shop_automation.models;
+package com.shop_automation.models.db;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -6,7 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.List;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -14,14 +15,16 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @Table
-public class ExpenseItems {
+public class Charges {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
+    private Double amount;
+    private LocalDate charge_date;
 
-    @OneToMany(mappedBy = "expense_items")
-    private List<Charges> chargesList;
+    @ManyToOne
+    @JoinColumn(name = "expense_item_id", foreignKey = @ForeignKey(name = "FK_CHARGES_EXPENSEITEMS"))
+    private ExpenseItems expense_items;
 }

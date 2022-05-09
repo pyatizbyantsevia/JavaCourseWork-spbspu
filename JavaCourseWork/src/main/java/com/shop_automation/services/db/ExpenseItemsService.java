@@ -1,7 +1,7 @@
-package com.shop_automation.services;
+package com.shop_automation.services.db;
 
 
-import com.shop_automation.repositories.ExpenseItemsRepository;
+import com.shop_automation.repositories.db.ExpenseItemsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;

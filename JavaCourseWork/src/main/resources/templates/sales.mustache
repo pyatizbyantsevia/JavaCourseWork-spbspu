@@ -14,6 +14,7 @@
         border-radius: 10px;">
         <div>Add new sales</div>
         <form method="post" action="main">
+            <input type="hidden" name="_csrf" value="{{_csrf.token}}">
             <input type ="number" name="amount" placeholder="amount">
             <input type ="number" name="quantity" placeholder="quantity">
             <input type ="datetime-local" name="local_date" placeholder="2000-01-01">
@@ -36,6 +37,7 @@
         border-radius: 10px;">
         <div>Cascade delete</div>
         <form method="post" action="main">
+            <input type="hidden" name="_csrf" value="{{_csrf.token}}">
             <input type ="number" name="id" placeholder="id">
             <button type="submit" name="btnDelete">Delete</button>
         </form>
@@ -49,6 +51,10 @@
 </div>
 
 <div>
+    <form action="/logout" method="post">
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}">
+        <input type="submit" value="Sign Out"/>
+    </form>
     <table border="1" style="
         padding: 10px;
         background: #7ea1bd;

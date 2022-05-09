@@ -1,7 +1,7 @@
-package com.shop_automation.repositories;
+package com.shop_automation.repositories.db;
 
 import com.shop_automation.dto.SaleResponse;
-import com.shop_automation.models.Sales;
+import com.shop_automation.models.db.Sales;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -19,5 +19,5 @@ public interface SalesRepository extends JpaRepository<Sales, Long> {
     List<Sales> getSalesByName(String src);
 
     @Query("SELECT s FROM Sales s JOIN s.warehouses w WHERE w.amount > 2.1")
-    List<Sales> getSalesByWarehouseAmount();
+    List<Sales> uretra();
 }

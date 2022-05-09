@@ -1,8 +1,8 @@
 package com.shop_automation.controllers;
 
 import com.shop_automation.dto.WarehouseRequest;
-import com.shop_automation.models.Warehouses;
-import com.shop_automation.services.WarehousesService;
+import com.shop_automation.models.db.Warehouses;
+import com.shop_automation.services.db.WarehousesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

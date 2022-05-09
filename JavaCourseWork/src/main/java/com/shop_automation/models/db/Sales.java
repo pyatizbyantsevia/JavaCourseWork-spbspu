@@ -1,4 +1,4 @@
-package com.shop_automation.models;
+package com.shop_automation.models.db;
 
 
 import lombok.*;

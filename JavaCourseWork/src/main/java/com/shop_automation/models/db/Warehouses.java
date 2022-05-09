@@ -1,7 +1,6 @@
-package com.shop_automation.models;
+package com.shop_automation.models.db;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
