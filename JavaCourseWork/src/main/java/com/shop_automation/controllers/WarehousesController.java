@@ -67,8 +67,9 @@ public class WarehousesController {
     }
 
     @PostMapping(path = "main", params = "btnDelete")
-    public String cascadeDelete(@RequestParam Long id,
-                                Map<String, Object> model) {
+    public String cascadeDelete(
+            @RequestParam Long id,
+            Map<String, Object> model) {
         String result = warehousesService.cascadeDelete(id);
         Response response = new Response(result);
         model.put("responseDelete", response);

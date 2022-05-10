@@ -4,7 +4,9 @@
     <title>Sales</title>
 </head>
 <body>
-
+<form action="/">
+    <button>Back</button>
+</form>
 <div style="float: right;">
     <div style ="
         padding: 10px;
@@ -35,7 +37,7 @@
         outline: 2px solid #000;
         border: 3px solid #fff;
         border-radius: 10px;">
-        <div>Cascade delete</div>
+        <div>Delete</div>
         <form method="post" action="main">
             <input type="hidden" name="_csrf" value="{{_csrf.token}}">
             <input type ="number" name="id" placeholder="id">
@@ -51,10 +53,6 @@
 </div>
 
 <div>
-    <form action="/logout" method="post">
-        <input type="hidden" name="_csrf" value="{{_csrf.token}}">
-        <input type="submit" value="Sign Out"/>
-    </form>
     <table border="1" style="
         padding: 10px;
         background: #7ea1bd;

@@ -4,7 +4,9 @@
     <title>Warehouses</title>
 </head>
 <body>
-
+<form action="/">
+    <button>Back</button>
+</form>
 <div style="float: right;">
     <div style="
         padding: 10px;
@@ -14,6 +16,7 @@
         border-radius: 10px;">
         <div>Add new goods</div>
         <form method="post" action="main">
+            <input type="hidden" name="_csrf" value="{{_csrf.token}}">
             <input type ="text" name="name" placeholder="name">
             <input type ="number" name="amount" placeholder="amount">
             <input type ="number" name="quantity" placeholder="quantity">
@@ -35,6 +38,7 @@
         border-radius: 10px;">
         <div>Replenish goods</div>
         <form method="post" action="main">
+            <input type="hidden" name="_csrf" value="{{_csrf.token}}">
             <input type ="text" name="name" placeholder="name">
             <input type ="number" name="quantity" placeholder="quantity">
             <button type="submit" name="btnReplenish">Add</button>
@@ -55,6 +59,7 @@
         border-radius: 10px;">
         <div>Cascade delete</div>
         <form method="post" action="main">
+            <input type="hidden" name="_csrf" value="{{_csrf.token}}">
             <input type ="number" name="id" placeholder="id">
             <button type="submit" name="btnDelete">Delete</button>
         </form>

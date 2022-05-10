@@ -71,6 +71,6 @@ public class SalesService {
     }
 
     public List<Sales> getSalesByWarehouseAmount() {
-        return salesRepository.uretra();
+        return salesRepository.getSalesByConstAmount();
     }
 }

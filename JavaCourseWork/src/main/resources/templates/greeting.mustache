@@ -6,10 +6,59 @@
 <body>
 <div>Hello, user</div>
 <div>
-    <a href="/sales-controller/main">Sales page</a>
+    <form action="sales-controller/main">
+        <button>Sales page</button>
+    </form>
+    <form action="warehouses-controller/main">
+        <button>Warehouses page</button>
+    </form>
+    <form action="charges-controller/main">
+        <button>Charges page</button>
+    </form>
+    <form action="charges-controller/main">
+        <button>ExpenseItems page</button>
+    </form>
+    <form action="/logout" method="post">
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}">
+        <input type="submit" value="Sign Out"/>
+    </form>
 </div>
-<div>
-    <a href="/warehouses-controller/main">Warehouses page</a>
+
+<div style="float: right;">
+    <table border="1" style="
+        padding: 10px;
+        background: #7ea1bd;
+        outline: 2px solid #000;
+        border: 3px solid #fff;
+        border-radius: 10px;">
+        <tr>
+            <th>Id</th>
+            <th>Amount</th>
+            <th>Quantity</th>
+            <th>Sale date</th>
+            <th>Warehouse id</th>
+        </tr>
+        {{#sales}}
+            <tr><td>{{id}}</td><td>{{amount}}</td><td>{{quantity}}</td><td>{{sale_date}}</td><td>{{warehouse_id}}</td></tr>
+        {{/sales}}
+    </table>
+    <div style="padding: 10px"></div>
+    <table border="1" style="
+        padding: 10px;
+        background: #89bb8e;
+        outline: 2px solid #000;
+        border: 3px solid #fff;
+        border-radius: 10px;">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Amount</th>
+            <th>Quantity</th>
+        </tr>
+        {{#warehouses}}
+            <tr><td>{{id}}</td><td>{{name}}</td><td>{{amount}}</td><td>{{quantity}}</td></tr>
+        {{/warehouses}}
+    </table>
 </div>
 </body>
 </html>

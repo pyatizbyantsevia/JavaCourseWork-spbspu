@@ -1,4 +1,4 @@
-package com.shop_automation.controllers;
+package com.shop_automation.rest_controllers;
 
 import com.shop_automation.dto.SaleRequest;
 import com.shop_automation.dto.SaleResponse;

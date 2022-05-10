@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -22,7 +22,7 @@ public class Charges {
     private Long id;
 
     private Double amount;
-    private LocalDate charge_date;
+    private LocalDateTime charge_date;
 
     @ManyToOne
     @JoinColumn(name = "expense_item_id", foreignKey = @ForeignKey(name = "FK_CHARGES_EXPENSEITEMS"))

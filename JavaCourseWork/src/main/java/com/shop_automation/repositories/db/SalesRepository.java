@@ -19,5 +19,5 @@ public interface SalesRepository extends JpaRepository<Sales, Long> {
     List<Sales> getSalesByName(String src);
 
     @Query("SELECT s FROM Sales s JOIN s.warehouses w WHERE w.amount > 2.1")
-    List<Sales> uretra();
+    List<Sales> getSalesByConstAmount();
 }

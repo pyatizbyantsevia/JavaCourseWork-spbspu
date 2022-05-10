@@ -1,0 +1,34 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Charges</title>
+</head>
+<body>
+
+<div style="float: right;">
+</div>
+
+<div>
+    <form action="/">
+        <button>Back</button>
+    </form>
+    <table border="1" style="
+        padding: 10px;
+        background: #7ea1bd;
+        outline: 2px solid #000;
+        border: 3px solid #fff;
+        border-radius: 10px;">
+        <tr>
+            <th>Id</th>
+            <th>Amount</th>
+            <th>Charge date</th>
+            <th>ExpenseItem id</th>
+        </tr>
+        {{#charges}}
+            <tr><td>{{id}}</td><td>{{amount}}</td><td>{{charge_date}}</td><td>{{expense_item_id}}</td></tr>
+        {{/charges}}
+    </table>
+</div>
+
+</body>
+</html>
