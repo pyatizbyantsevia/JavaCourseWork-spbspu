@@ -4,27 +4,10 @@
     <title>Greeting</title>
 </head>
 <body>
-<div>Hello, user</div>
-<div>
-    <form action="sales-controller/main">
-        <button>Sales page</button>
-    </form>
-    <form action="warehouses-controller/main">
-        <button>Warehouses page</button>
-    </form>
-    <form action="charges-controller/main">
-        <button>Charges page</button>
-    </form>
-    <form action="charges-controller/main">
-        <button>ExpenseItems page</button>
-    </form>
-    <form action="/logout" method="post">
-        <input type="hidden" name="_csrf" value="{{_csrf.token}}">
-        <input type="submit" value="Sign Out"/>
-    </form>
-</div>
+
 
 <div style="float: right;">
+    Sales
     <table border="1" style="
         padding: 10px;
         background: #7ea1bd;
@@ -43,6 +26,7 @@
         {{/sales}}
     </table>
     <div style="padding: 10px"></div>
+    Warehouses
     <table border="1" style="
         padding: 10px;
         background: #89bb8e;
@@ -59,6 +43,59 @@
             <tr><td>{{id}}</td><td>{{name}}</td><td>{{amount}}</td><td>{{quantity}}</td></tr>
         {{/warehouses}}
     </table>
+    <div style="padding: 10px"></div>
+    Charges
+    <table border="1" style="
+        padding: 10px;
+        background: #7ea1bd;
+        outline: 2px solid #000;
+        border: 3px solid #fff;
+        border-radius: 10px;">
+        <tr>
+            <th>Id</th>
+            <th>Amount</th>
+            <th>Charge date</th>
+            <th>ExpenseItem id</th>
+        </tr>
+        {{#charges}}
+            <tr><td>{{id}}</td><td>{{amount}}</td><td>{{charge_date}}</td><td>{{expense_item_id}}</td></tr>
+        {{/charges}}
+    </table>
+    <div style="padding: 10px"></div>
+    Expense items
+    <table border="1" style="
+        padding: 10px;
+        background: #89bb8e;
+        outline: 2px solid #000;
+        border: 3px solid #fff;
+        border-radius: 10px;">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+        </tr>
+        {{#items}}
+            <tr><td>{{id}}</td><td>{{name}}</td></tr>
+        {{/items}}
+    </table>
+</div>
+<div>Hello, user</div>
+<div>
+    <form action="sales-controller/main">
+        <button>Sales page</button>
+    </form>
+    <form action="warehouses-controller/main">
+        <button>Warehouses page</button>
+    </form>
+    <form action="charges-controller/main">
+        <button>Charges page</button>
+    </form>
+    <form action="expense-items-controller/main">
+        <button>ExpenseItems page</button>
+    </form>
+    <form action="/logout" method="post">
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}">
+        <input type="submit" value="Sign Out"/>
+    </form>
 </div>
 </body>
 </html>
