@@ -2,6 +2,7 @@ package com.shop_automation.services.db;
 
 import com.shop_automation.dto.SaleRequest;
 import com.shop_automation.dto.SaleResponse;
+import com.shop_automation.dto.WarehouseRequest;
 import com.shop_automation.models.db.Sales;
 import com.shop_automation.models.db.Warehouses;
 import com.shop_automation.repositories.db.SalesRepository;
@@ -72,5 +73,28 @@ public class SalesService {
 
     public List<Sales> getSalesByWarehouseAmount() {
         return salesRepository.getSalesByConstAmount();
+    }
+    
+    public String getProfit() {
+        List<Warehouses> temp = warehousesRepository.findAll();
+        double topResult = 0;
+        long topId = temp.get(0).getId();
+        for (Warehouses warehouse : temp) {
+            double profit = 0;
+            List<Sales> salesList = warehouse.getSalesList();
+            if (salesList.size() == 0) {
+                continue;
+            }
+            for (Sales sale : salesList) {
+                profit += sale.getQuantity() * sale.getAmount();
+            }
+            if (profit > topResult) {
+                topId = warehouse.getSalesList().get(0).getId();
+                topResult = profit;
+            }
+        }
+        WarehouseRequest warehouseRequest = salesRepository.getWarehouseNameAndQuantityAndAmountById(topId);
+        return "Max profit now: " + warehouseRequest.getName() + " - " + topResult
+                + ", expected income: " + (warehouseRequest.getAmount() * warehouseRequest.getQuantity() + topResult);
     }
 }

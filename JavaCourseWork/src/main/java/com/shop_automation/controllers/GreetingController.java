@@ -3,6 +3,7 @@ package com.shop_automation.controllers;
 import com.shop_automation.dto.ChargeDTO;
 import com.shop_automation.dto.SaleDTO;
 import com.shop_automation.dto.WarehouseDTO;
+import com.shop_automation.handlers.Response;
 import com.shop_automation.models.db.Charges;
 import com.shop_automation.models.db.ExpenseItems;
 import com.shop_automation.models.db.Sales;
@@ -74,6 +75,8 @@ public class GreetingController {
             ));
         }
         List<ExpenseItems> responseItems = expenseItemsService.getItems();
+        Response responseProfit = new Response(salesService.getProfit());
+        model.put("responseProfit", responseProfit);
         model.put("items", responseItems);
         model.put("charges", tempCharges);
         model.put("warehouses", tempWarehouses);

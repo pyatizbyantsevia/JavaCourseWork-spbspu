@@ -10,7 +10,7 @@ import java.util.NoSuchElementException;
 @ControllerAdvice
 public class DefaultHandler {
 
-    @ExceptionHandler({NoSuchElementException.class, RuntimeException.class})
+    @ExceptionHandler({NoSuchElementException.class})
     public ResponseEntity<Response> handleException(Exception e) {
         Response response = new Response(e.getMessage());
         return new ResponseEntity<>(response, HttpStatus.OK);

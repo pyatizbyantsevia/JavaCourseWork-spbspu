@@ -78,6 +78,20 @@
         {{/items}}
     </table>
 </div>
+
+<div style="position: absolute;
+        top: 50%;
+        left: 50%;
+        -moz-transform: translateX(-50%) translateY(-50%);
+        -webkit-transform: translateX(-50%) translateY(-50%);
+        transform: translateX(-50%) translateY(-50%);">
+    {{#responseProfit}}
+    <div>
+        <b>{{message}}</b>
+    </div>
+    {{/responseProfit}}
+</div>
+
 <div>Hello, user</div>
 <div>
     <form action="sales-controller/main">

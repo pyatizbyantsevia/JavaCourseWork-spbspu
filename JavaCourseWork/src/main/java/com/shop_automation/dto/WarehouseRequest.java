@@ -17,4 +17,9 @@ public class WarehouseRequest {
         this.name = name;
         this.quantity = quantity;
     }
+
+    public WarehouseRequest(Integer quantity, Double amount) {
+        this.quantity = quantity;
+        this.amount = amount;
+    }
 }
