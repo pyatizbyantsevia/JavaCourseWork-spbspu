@@ -2,20 +2,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: deployment
+  name: db-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: spring-app
+      app: db
   template:
     metadata:
       labels:
-        app: spring-app
+        app: db
     spec:
       containers:
-      - image: pyatizbyantsevia/mysql-spring-cs:1.0
-        name: spring-application
+      - image: mysql:5.7
+        name: db
         ports:
-        - containerPort: 8080
+        - containerPort: 3306
 ...
