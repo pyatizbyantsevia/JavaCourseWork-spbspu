@@ -7,11 +7,9 @@
 	</parent>
 	<groupId>com.example</groupId>
 	<artifactId>course-work</artifactId>
-	<version>1.0-SNAPSHOT</version>
+	<version>1.0</version>
 	<properties>
-		<java.version>17</java.version>
-		<maven.compiler.source>3.8.5</maven.compiler.source>
-		<maven.compiler.target>3.8.5</maven.compiler.target>
+		<java.version>11</java.version>
 		<exec.mainClass>com.example.Main</exec.mainClass>
 	</properties>
 	<dependencies>
