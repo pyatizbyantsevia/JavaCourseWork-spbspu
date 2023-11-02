@@ -15,6 +15,13 @@ spec:
     spec:
       containers:
       - image: pyatizbyantsevia/mysql-spring-cs:1.1
+        env:
+        - name: BD
+          value: "jdbc:mysql://172.22.61.155:3306/CourseWork"
+        - name: USERNAME
+          value: "root"
+        - name: PASSWORD
+          value: "password"
         name: spring-application
         ports:
         - containerPort: 8080
