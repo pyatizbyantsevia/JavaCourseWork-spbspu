@@ -14,7 +14,7 @@ spec:
         app: spring-app
     spec:
       containers:
-      - image: pyatizbyantsevia/mysql-spring-cs:1.0
+      - image: pyatizbyantsevia/mysql-spring-cs:1.1
         name: spring-application
         ports:
         - containerPort: 8080
